@@ -7,5 +7,6 @@ func routereinrichtung() * http.ServeMux {
 		server := http.NewServeMux()
 		fs := http.FileServer(http.Dir("static"))
 		server.Handle("/static/", http.StripPrefix("/static/", fs))
+		server.HandleFunc("GET /{id}", index)
 	return server
 }
